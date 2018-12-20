@@ -1,52 +1,69 @@
 package com.how2java.pojo;
 
+import java.util.List;
 
-public class Privilege {
+public class Role {
 
 	private Integer id;
+	
 	private String name;
+	
 	private String description;
-	private String uri;
+
+	/*
+	 * 保存角色对应的权限
+	 */
+	private List<Privilege> privileges;
+	
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getUri() {
-		return uri;
+
+	public List<Privilege> getPrivileges() {
+		return privileges;
 	}
-	public void setUri(String uri) {
-		this.uri = uri;
+
+	public void setPrivileges(List<Privilege> privileges) {
+		this.privileges = privileges;
 	}
+
 	@Override
 	public String toString() {
-		return "Privilege [id=" + id + ", name=" + name + ", description="
-				+ description + ", uri=" + uri + "]";
+		return "Role [id=" + id + ", name=" + name + ", description=" + description + ", privileges=" + privileges
+				+ "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((uri == null) ? 0 : uri.hashCode());
+		result = prime * result + ((privileges == null) ? 0 : privileges.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -55,7 +72,7 @@ public class Privilege {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Privilege other = (Privilege) obj;
+		Role other = (Role) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -71,12 +88,14 @@ public class Privilege {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (uri == null) {
-			if (other.uri != null)
+		if (privileges == null) {
+			if (other.privileges != null)
 				return false;
-		} else if (!uri.equals(other.uri))
+		} else if (!privileges.equals(other.privileges))
 			return false;
 		return true;
 	}
 
+	
+	
 }

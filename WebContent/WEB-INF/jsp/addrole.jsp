@@ -6,41 +6,39 @@
 
 <html>
  <head>
-    <title>权限列表</title>
+    <title>添加角色界面</title>
   </head>
 <body>
 
-  <form action="updateprivilege">
-  
-                  <input type="hidden" name="id" value="${p.id}">
+  <form action="addrole">
      <table>
          <tr>
-                   <td>权限名称</td>
+                   <td>角色名称</td>
                     <td>
-                         
-                         <input text="text" name="name" value="${p.name}">
+                         <input text="text" name="name">
                     </td>
          </tr>
          
          <tr>
-                  <td>权限描述</td>
+                  <td>角色描述</td>
                   <td>
                          
-                         <textarea rows="5" cols="50" name="description">${p.description}</textarea>
+                         <textarea rows="5" cols="50" name="description"></textarea>
                   </td>
          </tr>
          
          <tr>
-                 <td>权限uri</td>
+                 <td>角色对应的权限</td>
                  <td>
-                         <input text="text" name="uri" value="${p.uri}">
+                        
+                         <input text="text" name="uri">
                   </td>
          </tr>
          
          <tr>
                  <td></td>
                  <td>
-                      <input type="submit" value="修改权限">
+                      <input type="submit" value="添加权限">
                  </td>
          </tr>
          

@@ -24,7 +24,7 @@
 		PRIVILEGE P,
 		ROLE_PRIVILEGE RP
 		WHERE
-		RP.ROLE_ID = #{Id}
+		RP.ROLE_ID = #{roleId}
 		AND RP.PRIVILEGE_ID = P.ID
 	</select>
 

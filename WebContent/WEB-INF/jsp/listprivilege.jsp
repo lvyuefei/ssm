@@ -11,12 +11,12 @@
   <body style="text-align: center;">
    	<br/>	<br/>
   
-  <<table width="90%">
+  <table width="90%">
   <tr>
     <td></td>
     <td></td>
     <td>
-    <a href="${pageContext.request.contextPath}/add">添加权限</a>
+    <a href="${pageContext.request.contextPath}/addPrivilegePage">添加权限</a>
     </td>
   </tr>
 </table>
@@ -33,8 +33,8 @@
             <td>${p.id}</td>
             <td>${p.name}</td>
             <td>
-	   				<a href="${pageContext.request.contextPath}/update">修改权限</a>
-	   				<a href="${pageContext.request.contextPath}/delete">删除权限</a>
+	   				<a href="${pageContext.request.contextPath}/updatePrivilegePage?id=${p.id}">修改权限</a>
+	   				<a href="${pageContext.request.contextPath}/deleteprivilege?id=${p.id}">删除权限</a>
 	   			</td>   
         </tr>
     </c:forEach>
