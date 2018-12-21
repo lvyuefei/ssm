@@ -16,7 +16,7 @@
     <td></td>
     <td></td>
     <td>
-    <a href="${pageContext.request.contextPath}/addrolepage">添加角色</a>
+    <a href="${pageContext.request.contextPath}/addRolePage">添加角色</a>
     </td>
   </tr>
 </table>
@@ -35,7 +35,9 @@
             <td>${r.description}</td>
             
             <td>
-                 <c:forEach items="${r.privileges} var="privileges">${privileges.name}</c:forEach>
+                 <c:forEach items="${r.privileges}" var="privileges">
+                 ${privileges.name}
+                 </c:forEach>
             </td>
             
             <td>

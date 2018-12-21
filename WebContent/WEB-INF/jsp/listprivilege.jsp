@@ -24,14 +24,14 @@
   
 <table width="60%" frame="border" "center" border="1" cellspacing="0">
     <tr>
-        <td>id</td>
-        <td>name</td>
+        <td>权限名称</td>
+        <td>权限描述</td>
         <td>操作</td>
     </tr>
     <c:forEach items="${ps}" var="p" varStatus="st">
         <tr>
-            <td>${p.id}</td>
             <td>${p.name}</td>
+            <td>${p.description}</td>
             <td>
 	   				<a href="${pageContext.request.contextPath}/updatePrivilegePage?id=${p.id}">修改权限</a>
 	   				<a href="${pageContext.request.contextPath}/deleteprivilege?id=${p.id}">删除权限</a>

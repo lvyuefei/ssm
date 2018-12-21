@@ -10,7 +10,7 @@
   </head>
 <body>
 
-  <form action="addrole">
+  <form action="addRole">
      <table>
          <tr>
                    <td>角色名称</td>
@@ -28,17 +28,19 @@
          </tr>
          
          <tr>
-                 <td>角色对应的权限</td>
+                 <td>授权</td>
                  <td>
-                        
-                         <input text="text" name="uri">
+                        <c:forEach items="${privileges}" var="privilege">
+                         <input type="checkbox" name="privilegeIds" value="${privilege.id}"/>
+                         ${privilege.name}
+                        </c:forEach>
                   </td>
          </tr>
          
          <tr>
                  <td></td>
                  <td>
-                      <input type="submit" value="添加权限">
+                      <input type="submit" value="添加角色">
                  </td>
          </tr>
          

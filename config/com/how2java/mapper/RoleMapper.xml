@@ -9,9 +9,41 @@
 		<result column="NAME" property="name" />
 		<result column="DESCRIPTION" property="description" />
 
+        <!-- 配置一对多的关系 -->
+        <collection property="privileges" column="ID" 
+           select="com.how2java.mapper.PrivilegeMapper.queryPrivilegeByRoleId"/>
+
 	</resultMap>
 
-    <select id="queryRoleAll" resultMap="roleResultMap">
-    SELECT * FROM ROLE
+   <sql id="queryRoleForm">
+       SELECT ID,NAME,DESCRIPTION FROM ROLE
+   </sql>
+
+    <select id="queryRoleByWhere" parameterType="role" resultMap="roleResultMap">
+        
+        <include refid="queryRoleForm"></include>
+          
+           <where>
+                 <if test="name!=null and name!='' ">
+                       AND NAME=#{name}
+                 </if>
+           </where>
+        
     </select>
+    
+    <!-- 保存角色信息，并更新角色权限表，中间表 -->
+    <insert id="addRole" parameterType="role">
+      <selectKey keyColumn="ID" keyProperty="id" resultType="int" order="AFTER">
+      SELECT LAST_INSERT_ID();
+      </selectKey>
+      INSERT INTO ROLE(NAME,DESCRIPTION) VALUES(#{name},#{decription}) 
+    </insert>
+    
+    <insert id="insertRolePrivilegeRelation" parameterType="map">
+      INSERT INTO ROLE_PRIVILEGE(ROLE_ID,PRIVILEGE_ID) VALUES(#{roleId},#{privilegeId})
+    </insert>
+    
+    <delete id="deleteRolePrivilegeRelation" parameterType="int">
+        DELETE FROM ROLE_PRIVILEGE WHERE ROLE_ID=#{roleId}
+    </delete>
 </mapper>
